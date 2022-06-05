@@ -7,7 +7,6 @@ from snake import Snake
 
 class Game:
     def __init__(self, row_count, column_count):
-        self.logic = Logic()
         self.column_count = column_count  # горизонталь
         self.row_count = row_count  # вертикаль
         self.wall_list = []
@@ -95,6 +94,3 @@ class Game:
     def game(self):
         self.game_build(4)
 
-        self.snake = Logic.move(self.snake, self.wall_list,self.food,
-                                self.column_count,self.row_count ,
-                                speed, direction)

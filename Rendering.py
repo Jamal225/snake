@@ -6,9 +6,8 @@ class Rendering:
         self.window = window
         self.snake = game.snake
         self.food = game.food
-        self.wall = game.wall
-        self.canvas = Canvas(window, height=window.height, width=window.width,
-                             bg=window.back_ground_color)
+        self.wall_list = game.wall_list
+        self.canvas = window.canvas
 
     def draw_snake(self):
         squares = []
@@ -34,7 +33,7 @@ class Rendering:
                                      fill=foodColor)
 
     def draw_wall(self):
-        for x, y in self.wall.get_coord():
+        for x, y in self.wall_list:
             self.canvas.create_rectangle(x, y, x + self.window.space_size,
                                          y + self.window.space_size,
                                          fill='red')

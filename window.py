@@ -12,11 +12,12 @@ class Window:
         self.space_size = space_size
         self.canvas = Canvas(self.Tk, height=height, width=width,
                              bg=back_ground_color)
-        self.Tk.mainloop()..
+
         self.Tk.resizable(False, False)
         self.Tk.title('Змейка')
         self.Tk.geometry(f'{self.width}x{self.height}')
-
+        self.canvas.pack()
+        self.Tk.mainloop()
 
     def clean_map(self):
         self.canvas.delete(ALL)
