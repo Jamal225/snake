@@ -95,4 +95,6 @@ class Game:
     def game(self):
         self.game_build(4)
 
-        self.snake = Logic.move()
+        self.snake = Logic.move(self.snake, self.wall_list,self.food,
+                                self.column_count,self.row_count ,
+                                speed, direction)

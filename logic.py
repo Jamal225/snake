@@ -30,18 +30,17 @@ class Logic:
         if self.snake.cells[0] == self.food.cell:
             self.snake.cells.insert(0, self.food.cell)
             if self.food.baf == 'double_up':
+                x, y = self.snake.cells[-1]
                 if self.direction == 'down':
-                    x, y = self.snake.cells[-1]
                     self.snake.cells.insert(-1, (x, y - 1))
-                if self.direction == 'down':
+                if self.direction == 'up':
+                    self.snake.cells.insert(-1, (x, y + 1))
+                if self.direction == 'right':
                     x, y = self.snake.cells[-1]
-                    self.snake.cells.insert(-1, (x, y - 1))
-                if self.direction == 'down':
+                    self.snake.cells.insert(-1, (x - 1, y))
+                if self.direction == 'left':
                     x, y = self.snake.cells[-1]
-                    self.snake.cells.insert(-1, (x, y - 1))
-                if self.direction == 'down':
-                    x, y = self.snake.cells[-1]
-                    self.snake.cells.insert(-1, (x, y - 1))
+                    self.snake.cells.insert(-1, (x + 1, y))
                 self.snake.baf = 'default'
             if self.food.baf == 'low_speed':
                 self.speed += 5
@@ -70,8 +69,8 @@ class Logic:
         else:
             return False
 
-    def change_direction(new_direction, snake):
-        direction = snake.direction
+    def change_direction(self, new_direction):
+        direction = self.direction
         if new_direction == 'down':
             if direction != 'up':
                 direction = new_direction

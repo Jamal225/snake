@@ -4,7 +4,7 @@ from tkinter import *
 
 class Window:
     def __init__(self, width, height, back_ground_color, space_size):
-        # 1000; 600; 'black'; 25;
+        # 1000, 600, 'black', 25;
         self.Tk = Tk()
         self.width = width
         self.height = height
@@ -12,12 +12,11 @@ class Window:
         self.space_size = space_size
         self.canvas = Canvas(self.Tk, height=height, width=width,
                              bg=back_ground_color)
-
-    @staticmethod
-    def create_window(self):
-        self.Tk.title('Змейка')
+        self.Tk.mainloop()..
         self.Tk.resizable(False, False)
-        self.Tk.geometry('1000x600')
+        self.Tk.title('Змейка')
+        self.Tk.geometry(f'{self.width}x{self.height}')
+
 
     def clean_map(self):
         self.canvas.delete(ALL)
